@@ -21,73 +21,75 @@ export function Questionnaire({ onComplete, onBack }: QuestionnaireProps) {
   };
 
   return (
-    <section className="py-12 px-6">
-      <div className="mx-auto max-w-3xl">
+    <section className="py-16 px-6">
+      <div className="mx-auto max-w-4xl">
         {onBack && (
-          <Button
-            variant="ghost"
+          <button
             onClick={onBack}
-            className="mb-6"
+            className="mb-8 text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2"
           >
-            <ArrowLeft className="mr-2 h-4 w-4" />
+            <ArrowLeft className="h-4 w-4" />
             Back to Top
-          </Button>
+          </button>
         )}
-        
-        <Card className="p-8 shadow-card">
-          <div className="mb-8 text-center">
-            <h2 className="mb-2 text-3xl font-bold text-foreground">
+
+        <div className="card-martie p-10">
+          <div className="mb-10 text-center">
+            <h2 className="mb-3 text-4xl font-display text-foreground">
               How would you like to help?
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               Choose the way that works best for you
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
-            <Button
-              variant="choice"
+          <div className="grid gap-6 md:grid-cols-3">
+            <button
               onClick={() => handleSelection("time")}
-              className="flex-col gap-4 items-center"
+              className="card-martie p-6 flex flex-col items-center gap-4 cursor-pointer group bg-primary/5 hover:bg-primary/10"
             >
-              <Clock className="h-12 w-12 text-primary" />
+              <div className="rounded-full bg-primary/20 p-4 group-hover:bg-primary/30 transition-colors">
+                <Clock className="h-12 w-12 text-primary" />
+              </div>
               <div className="text-center">
-                <div className="font-semibold text-lg mb-1">Donate Time</div>
+                <div className="font-semibold text-xl mb-2">Donate Time</div>
                 <div className="text-sm text-muted-foreground">
                   Volunteer at food banks and distribution centers
                 </div>
               </div>
-            </Button>
+            </button>
 
-            <Button
-              variant="choice"
+            <button
               onClick={() => handleSelection("money")}
-              className="flex-col gap-4 items-center"
+              className="card-martie p-6 flex flex-col items-center gap-4 cursor-pointer group bg-secondary/5 hover:bg-secondary/10"
             >
-              <DollarSign className="h-12 w-12 text-secondary" />
+              <div className="rounded-full bg-secondary/20 p-4 group-hover:bg-secondary/30 transition-colors">
+                <DollarSign className="h-12 w-12 text-secondary" />
+              </div>
               <div className="text-center">
-                <div className="font-semibold text-lg mb-1">Donate Money</div>
+                <div className="font-semibold text-xl mb-2">Donate Money</div>
                 <div className="text-sm text-muted-foreground">
                   Financial contributions help organizations scale their impact
                 </div>
               </div>
-            </Button>
+            </button>
 
-            <Button
-              variant="choice"
+            <button
               onClick={() => handleSelection("food")}
-              className="flex-col gap-4 items-center"
+              className="card-martie p-6 flex flex-col items-center gap-4 cursor-pointer group bg-accent/5 hover:bg-accent/10"
             >
-              <ShoppingBag className="h-12 w-12 text-accent" />
+              <div className="rounded-full bg-accent/20 p-4 group-hover:bg-accent/30 transition-colors">
+                <ShoppingBag className="h-12 w-12 text-accent" />
+              </div>
               <div className="text-center">
-                <div className="font-semibold text-lg mb-1">Donate Food</div>
+                <div className="font-semibold text-xl mb-2">Donate Food</div>
                 <div className="text-sm text-muted-foreground">
                   Provide non-perishable items to local food banks
                 </div>
               </div>
-            </Button>
+            </button>
           </div>
-        </Card>
+        </div>
       </div>
     </section>
   );

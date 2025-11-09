@@ -51,13 +51,16 @@ const Index = () => {
         />
       )}
 
-      <footer className="bg-card py-8 px-6 border-t">
+      <footer className="bg-card py-10 px-6 border-t-2 border-border">
         <div className="mx-auto max-w-6xl text-center text-sm text-muted-foreground">
-          <p className="mb-2">
-            Miami Beach Cares • Supporting our community through food insecurity
+          <p className="mb-3 text-foreground font-semibold text-base">
+            Miami Beach Cares
           </p>
-          <p>
-            This resource connects community members with local organizations. 
+          <p className="mb-2">
+            Supporting our community through food insecurity
+          </p>
+          <p className="text-xs">
+            This resource connects community members with local organizations.
             All donations go directly to the listed organizations.
           </p>
         </div>

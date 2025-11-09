@@ -9,115 +9,101 @@ interface OrganizationCardProps {
 
 export function OrganizationCard({ organization }: OrganizationCardProps) {
   return (
-    <Card className="p-6 shadow-card hover:shadow-card-hover transition-all duration-300">
-      <div className="mb-4">
-        <h3 className="text-xl font-bold text-foreground mb-2">
+    <div className="card-martie p-6">
+      <div className="mb-5">
+        <h3 className="text-2xl font-display text-foreground mb-3">
           {organization.name}
         </h3>
-        <p className="text-muted-foreground text-sm">
+        <p className="text-muted-foreground text-sm leading-relaxed">
           {organization.summary}
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mb-5">
         {organization.categories.includes("time") && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+          <span className="inline-flex items-center gap-1 rounded-full bg-primary/20 px-3 py-1.5 text-xs font-semibold text-primary border border-primary/30">
             <Clock className="h-3 w-3" />
             Volunteers Needed
           </span>
         )}
         {organization.categories.includes("money") && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-secondary/10 px-3 py-1 text-xs font-medium text-secondary">
+          <span className="inline-flex items-center gap-1 rounded-full bg-secondary/20 px-3 py-1.5 text-xs font-semibold text-secondary border border-secondary/30">
             <DollarSign className="h-3 w-3" />
             Accepting Donations
           </span>
         )}
         {organization.categories.includes("food") && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-accent/20 px-3 py-1 text-xs font-medium text-accent-foreground">
+          <span className="inline-flex items-center gap-1 rounded-full bg-accent/20 px-3 py-1.5 text-xs font-semibold text-accent-foreground border border-accent/30">
             <ShoppingBag className="h-3 w-3" />
             Food Drop-off
           </span>
         )}
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         {organization.volunteerUrl && (
-          <Button
-            variant="default"
-            size="sm"
-            asChild
-            className="w-full"
+          <a
+            href={organization.volunteerUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-martie bg-primary text-white w-full inline-flex items-center justify-center gap-2 hover:bg-primary/90"
           >
-            <a href={organization.volunteerUrl} target="_blank" rel="noopener noreferrer">
-              <Clock className="mr-2 h-4 w-4" />
-              Volunteer Here
-              <ExternalLink className="ml-auto h-4 w-4" />
-            </a>
-          </Button>
+            <Clock className="h-4 w-4" />
+            Volunteer Here
+            <ExternalLink className="ml-auto h-4 w-4" />
+          </a>
         )}
 
         {organization.moneyDonationUrl && (
-          <Button
-            variant="secondary"
-            size="sm"
-            asChild
-            className="w-full"
+          <a
+            href={organization.moneyDonationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-martie bg-secondary text-white w-full inline-flex items-center justify-center gap-2 hover:bg-secondary/90"
           >
-            <a href={organization.moneyDonationUrl} target="_blank" rel="noopener noreferrer">
-              <DollarSign className="mr-2 h-4 w-4" />
-              Donate Money
-              <ExternalLink className="ml-auto h-4 w-4" />
-            </a>
-          </Button>
+            <DollarSign className="h-4 w-4" />
+            Donate Money
+            <ExternalLink className="ml-auto h-4 w-4" />
+          </a>
         )}
 
         {organization.foodDonationInfo && (
-          <Button
-            variant="outline"
-            size="sm"
-            asChild
-            className="w-full"
+          <a
+            href={organization.foodDonationInfo.startsWith('http') ? organization.foodDonationInfo : organization.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-martie bg-accent text-accent-foreground w-full inline-flex items-center justify-center gap-2 hover:bg-accent/90"
           >
-            <a 
-              href={organization.foodDonationInfo.startsWith('http') ? organization.foodDonationInfo : organization.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <ShoppingBag className="mr-2 h-4 w-4" />
-              Donate Food
-              <ExternalLink className="ml-auto h-4 w-4" />
-            </a>
-          </Button>
+            <ShoppingBag className="h-4 w-4" />
+            Donate Food
+            <ExternalLink className="ml-auto h-4 w-4" />
+          </a>
         )}
 
         <div className="flex gap-2 mt-2">
           {organization.social && (
-            <Button
-              variant="ghost"
-              size="sm"
-              asChild
-              className="flex-1"
+            <a
+              href={organization.social}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 text-center py-2 px-4 rounded-lg border-2 border-border hover:bg-muted transition-colors inline-flex items-center justify-center gap-2 text-sm font-medium"
             >
-              <a href={organization.social} target="_blank" rel="noopener noreferrer">
-                <Instagram className="mr-2 h-4 w-4" />
-                Follow
-              </a>
-            </Button>
-          )}
-          
-          <Button
-            variant="ghost"
-            size="sm"
-            asChild
-            className="flex-1"
-          >
-            <a href={organization.url} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Visit Website
+              <Instagram className="h-4 w-4" />
+              Follow
             </a>
-          </Button>
+          )}
+
+          <a
+            href={organization.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center py-2 px-4 rounded-lg border-2 border-border hover:bg-muted transition-colors inline-flex items-center justify-center gap-2 text-sm font-medium"
+          >
+            <ExternalLink className="h-4 w-4" />
+            Website
+          </a>
         </div>
       </div>
-    </Card>
+    </div>
   );
 }
