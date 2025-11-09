@@ -1,10 +1,50 @@
 import { Button } from "@/components/ui/button";
 import { Palmtree, Waves } from "lucide-react";
-import mangoImage from "@/assets/mango.png";
 
 interface HeroProps {
   onGetStarted: () => void;
 }
+
+const CartoonMango = () => (
+  <svg viewBox="0 0 200 200" className="h-24 w-24">
+    {/* Mango body */}
+    <ellipse cx="100" cy="110" rx="65" ry="75" fill="#FFD700" />
+    <ellipse cx="100" cy="110" rx="65" ry="75" fill="url(#mangoGradient)" />
+
+    {/* Gradient for depth */}
+    <defs>
+      <linearGradient id="mangoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style={{ stopColor: '#FFD700', stopOpacity: 1 }} />
+        <stop offset="50%" style={{ stopColor: '#FFA500', stopOpacity: 1 }} />
+        <stop offset="100%" style={{ stopColor: '#FF8C00', stopOpacity: 1 }} />
+      </linearGradient>
+      <radialGradient id="leafGradient" cx="50%" cy="50%">
+        <stop offset="0%" style={{ stopColor: '#90EE90', stopOpacity: 1 }} />
+        <stop offset="100%" style={{ stopColor: '#228B22', stopOpacity: 1 }} />
+      </radialGradient>
+    </defs>
+
+    {/* Highlight */}
+    <ellipse cx="75" cy="85" rx="20" ry="25" fill="white" opacity="0.4" />
+
+    {/* Leaf */}
+    <ellipse cx="100" cy="40" rx="15" ry="30" fill="url(#leafGradient)" transform="rotate(-20 100 40)" />
+    <line x1="100" y1="40" x2="100" y2="60" stroke="#228B22" strokeWidth="2" />
+
+    {/* Cute face */}
+    <circle cx="85" cy="100" r="5" fill="#333" />
+    <circle cx="115" cy="100" r="5" fill="#333" />
+    <circle cx="87" cy="98" r="2" fill="white" />
+    <circle cx="117" cy="98" r="2" fill="white" />
+
+    {/* Smile */}
+    <path d="M 85 120 Q 100 130 115 120" stroke="#333" strokeWidth="3" fill="none" strokeLinecap="round" />
+
+    {/* Rosy cheeks */}
+    <circle cx="70" cy="110" r="8" fill="#FF69B4" opacity="0.3" />
+    <circle cx="130" cy="110" r="8" fill="#FF69B4" opacity="0.3" />
+  </svg>
+);
 
 export function Hero({ onGetStarted }: HeroProps) {
   return (
@@ -30,12 +70,12 @@ export function Hero({ onGetStarted }: HeroProps) {
       <div className="relative mx-auto max-w-4xl z-10">
         <div className="mb-8 flex justify-center">
           <div className="rounded-2xl bg-white p-4 shadow-2xl border-2 border-black/10">
-            <img src={mangoImage} alt="Fresh sliced mango" className="h-24 w-24 object-cover rounded-xl" />
+            <CartoonMango />
           </div>
         </div>
 
         <h1 className="mb-6 text-5xl font-display text-white md:text-7xl tracking-tight">
-          Miami Beach Cares
+          Feed Miami Beach
         </h1>
 
         <p className="mb-10 text-lg text-white/95 md:text-xl max-w-2xl mx-auto leading-relaxed">

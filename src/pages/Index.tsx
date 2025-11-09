@@ -54,7 +54,7 @@ const Index = () => {
       <footer className="bg-card py-10 px-6 border-t-2 border-border">
         <div className="mx-auto max-w-6xl text-center text-sm text-muted-foreground">
           <p className="mb-3 text-foreground font-semibold text-base">
-            Miami Beach Cares
+            Feed Miami Beach
           </p>
           <p className="mb-2">
             Supporting our community through food insecurity
